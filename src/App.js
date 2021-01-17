@@ -1,7 +1,13 @@
+import React from "react";
+import Movies from "./components/Movies";
 import "./App.css";
 
 function App() {
-  return <div className="App">Hello</div>;
+  return (
+    <div className="App">
+      <Movies />
+    </div>
+  );
 }
 
 export default App;
