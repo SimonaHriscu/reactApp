@@ -20,24 +20,32 @@ const useStyles = makeStyles({
     marginTop: 100,
   },
   table: {
-    width: "90%",
+    width: "50%",
   },
   boldRow: {
     fontWeight: "600",
   },
-  emptyDatabase: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+  checkedItem: {
+    textDecoration: "line-through",
+    color: "red",
   },
 });
 
 const Movies = () => {
   const [movieList, setMovieList] = useState(movies);
+  const [isCompleted, setIsCompleted] = useState();
+  console.log(isCompleted);
   const handleRemoveItem = (movie) => {
     const newMovieArray = movieList.filter((item) => movie._id !== item._id);
     setMovieList(newMovieArray);
+  };
+  const handleCheck = (movie) => {
+    const newMovieList = [...movieList];
+    let newItemArray = [];
+    const newItem = newMovieList.filter((item) => movie._id === item._id);
+    newItemArray.push(newItem);
+    // console.log(newItemArray);
+    setIsCompleted(true);
   };
   const classes = useStyles();
   const count = movieList.length;
@@ -47,31 +55,52 @@ const Movies = () => {
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
+              <TableCell className={classes.boldRow} align="center">
+                CHECK
+              </TableCell>
               <TableCell className={classes.boldRow}>Title</TableCell>
-              <TableCell className={classes.boldRow} align="left">
+              <TableCell className={classes.boldRow} align="center">
                 Genre
               </TableCell>
-              <TableCell className={classes.boldRow} align="left">
+              <TableCell className={classes.boldRow} align="center">
                 Stock
               </TableCell>
-              <TableCell className={classes.boldRow} align="left">
+              <TableCell className={classes.boldRow} align="center">
                 Rate
               </TableCell>
-              <TableCell className={classes.boldRow} align="left"></TableCell>
+              <TableCell className={classes.boldRow} align="center">
+                DELETE
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {movieList.map((movie) => (
-              <TableRow key={movie._id}>
+              <TableRow
+                key={movie._id}
+                // className={isCompleted.length ? classes.checkedItem : ""}
+              >
+                <TableCell align="center">
+                  <DeleteButton
+                    color="default"
+                    onClick={() => handleCheck(movie)}
+                  >
+                    DONE
+                  </DeleteButton>
+                </TableCell>
                 <TableCell component="th" scope="movie">
                   {movie.title}
                 </TableCell>
-                <TableCell align="left">{movie.genre.name}</TableCell>
-                <TableCell align="left">{movie.numberInStock}</TableCell>
-                <TableCell align="left">{movie.dailyRentalRate}</TableCell>
+                <TableCell align="center">{movie.genre.name}</TableCell>
+                <TableCell align="center">{movie.numberInStock}</TableCell>
+                <TableCell align="center">{movie.dailyRentalRate}</TableCell>
 
-                <TableCell>
-                  <DeleteButton onClick={() => handleRemoveItem(movie)} />
+                <TableCell align="center">
+                  <DeleteButton
+                    color="secondary"
+                    onClick={() => handleRemoveItem(movie)}
+                  >
+                    DELETE
+                  </DeleteButton>
                 </TableCell>
               </TableRow>
             ))}
