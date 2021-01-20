@@ -34,17 +34,13 @@ const useStyles = makeStyles({
 const Movies = () => {
   const [movieList, setMovieList] = useState(movies);
   const [isCompleted, setIsCompleted] = useState();
-  console.log(isCompleted);
   const handleRemoveItem = (movie) => {
     const newMovieArray = movieList.filter((item) => movie._id !== item._id);
     setMovieList(newMovieArray);
   };
   const handleCheck = (movie) => {
     const newMovieList = [...movieList];
-    let newItemArray = [];
     const newItem = newMovieList.filter((item) => movie._id === item._id);
-    newItemArray.push(newItem);
-    // console.log(newItemArray);
     setIsCompleted(true);
   };
   const classes = useStyles();
