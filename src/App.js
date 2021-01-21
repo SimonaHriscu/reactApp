@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import useOnScreen from "components/useOnScreenObserver";
-import Movies from "pages/Movies";
-import Section from "pages/Section";
+import Movies from "components/Movies";
+import Section from "components/Section";
 
 const useStyles = makeStyles({
   container: {
