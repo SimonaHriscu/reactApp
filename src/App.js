@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import useOnScreen from "components/useOnScreenObserver";
 import Movies from "components/Movies";
 import Section from "components/Section";
+import ProgressBar from "components/ProgressBar";
 
 const useStyles = makeStyles({
   container: {
@@ -22,9 +23,35 @@ function App() {
   const [setRefSection1, visibleSection1] = useOnScreen({ threshold: 0.5 });
   const [setRefSection2, visibleSection2] = useOnScreen({ threshold: 0.5 });
   const [setRefSection3, visibleSection3] = useOnScreen({ threshold: 0.5 });
+
   const classes = useStyles();
+
+  const [scrollTop, setScrollTop] = useState(0);
+  const [style, setStyle] = React.useState({});
+  const onScroll = () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    setScrollTop(scrolled.toFixed(0));
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      const newStyle = {
+        opacity: 1,
+        width: `${scrollTop}%`,
+      };
+      setStyle(newStyle);
+    }, 0);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [scrollTop]);
+
   return (
     <div className={classes.container}>
+      <ProgressBar done={scrollTop} style={style} />
       <Movies />
       <Section
         className={classes.section}
