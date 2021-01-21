@@ -7,17 +7,17 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import DeleteButton from "./DeleteButtonComponent";
+import DeleteButton from "components/DeleteButtonComponent";
 
 const useStyles = makeStyles({
   container: {
     width: "100%",
-    height: "100%",
+    height: "100vh",
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 100,
+    backgroundColor: "#f7f7e8",
   },
   table: {
     width: "50%",
