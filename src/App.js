@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div className={classes.container}>
-      {/* <ProgressBar done={scrollTop} style={style} /> */}
+      <ProgressBar done={scrollTop} style={style} />
       <LandingPage />
     </div>
   );

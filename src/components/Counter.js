@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Button from 'components/ButtonComponent';
 import axios from 'axios';
 
 const Counter = () => {
@@ -34,14 +35,14 @@ const Counter = () => {
   const handleData = () => {
     setOn(!on);
   };
-  // console.log(randomData.results);
+
   return (
     <>
-      <button onClick={() => handleIncrement()}>Increment</button>
+      <Button onClick={() => handleIncrement()}>Increment</Button>
       <p>{counter}</p>
-      <button onClick={() => handleDecrement()}>Decrement</button>
+      <Button onClick={() => handleDecrement()}>Decrement</Button>
       <p>{randomString}</p>
-      <button onClick={() => handleData()}>Fetch Data</button>
+      <Button onClick={() => handleData()}>Fetch Data</Button>
       {on &&
         randomData.results.map((item, i) => {
           return (

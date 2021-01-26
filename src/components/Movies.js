@@ -1,33 +1,33 @@
-import { Fragment, useState } from "react";
-import movies from "../services/fakeMovieService";
-import { makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import DeleteButton from "components/DeleteButtonComponent";
+import { Fragment, useState } from 'react';
+import movies from '../services/fakeMovieService';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import DeleteButton from 'components/ButtonComponent';
 
 const useStyles = makeStyles({
   container: {
-    width: "100%",
-    height: "100vh",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#f7f7e8",
+    width: '100%',
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f7f7e8',
   },
   table: {
-    width: "50%",
+    width: '50%',
   },
   boldRow: {
-    fontWeight: "600",
+    fontWeight: '600',
   },
   checkedItem: {
-    textDecoration: "line-through",
-    color: "red",
+    textDecoration: 'line-through',
+    color: 'red',
   },
 });
 
