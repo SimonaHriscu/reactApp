@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import ProgressBar from "components/ProgressBar";
-import LandingPage from "pages/LandingPage";
+import React, { useEffect, useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import ProgressBar from 'components/ProgressBar';
+import LandingPage from 'pages/LandingPage';
 
 const useStyles = makeStyles({
   container: {
-    width: "100%",
-    height: "fit-content",
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: "#f8f1f1",
+    width: '100%',
+    height: 'fit-content',
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: '#f8f1f1',
   },
   section: {
-    width: "100vw",
-    height: "100vh",
+    width: '100vw',
+    height: '100vh',
   },
 });
 
@@ -39,13 +39,13 @@ function App() {
       };
       setStyle(newStyle);
     }, 0);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, [scrollTop]);
 
   return (
     <div className={classes.container}>
-      <ProgressBar done={scrollTop} style={style} />
+      {/* <ProgressBar done={scrollTop} style={style} /> */}
       <LandingPage />
     </div>
   );
