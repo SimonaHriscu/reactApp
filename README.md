@@ -11,4 +11,5 @@
 7. Fetch / Axios REST API on page render / on click
 8. API data handle
 
-https://media.giphy.com/media/cnzP4cmBsiOrccg20V/giphy.gif
+<img src="https://media.giphy.com/media/cnzP4cmBsiOrccg20V/giphy.gif" alt'Loading..."/>
+
